@@ -14,8 +14,7 @@ constructor(private http: HttpClient) { }
 
 login(model: any)
 {
-  console.log(this.baseUrl + 'login');
-  console.log(model);
+
   return this.http.post(this.baseUrl + 'login', model).pipe(
     map((response: any) =>
     {
