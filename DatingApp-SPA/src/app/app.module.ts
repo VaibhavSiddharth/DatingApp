@@ -21,7 +21,10 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { AlertifyService } from './_services/alertify.service';
 import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
 import { MemberListResolver } from './_resolvers/member-list.resolver';
+import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { NgxGalleryModule } from 'ngx-gallery-9';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-chnages.guard';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -38,6 +41,7 @@ export function tokenGetter() {
     MessagesComponent,
     MemberCardComponent,
     MemberDetailComponent,
+    MemberEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,8 +64,10 @@ export function tokenGetter() {
     ErrorInterceptorProvider,
     AlertifyService,
     AuthService,
+    PreventUnsavedChanges,
     MemberDetailResolver,
-    MemberListResolver
+    MemberListResolver,
+    MemberEditResolver
   ],
   bootstrap: [AppComponent],
 })
