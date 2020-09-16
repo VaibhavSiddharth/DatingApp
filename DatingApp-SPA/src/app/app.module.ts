@@ -30,6 +30,8 @@ import { PreventUnsavedChanges } from './_guards/prevent-unsaved-chnages.guard';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { FileUploadModule } from 'ng2-file-upload';
 import { TimeagoModule } from 'ngx-timeago';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -56,11 +58,13 @@ export function tokenGetter() {
     FormsModule,
     ReactiveFormsModule,
     NgxGalleryModule,
+    ButtonsModule.forRoot(),
     TimeagoModule.forRoot(),
     BsDropdownModule.forRoot(),
     BsDatepickerModule.forRoot(),
     TabsModule.forRoot(),
     RouterModule.forRoot(appRoutes),
+    PaginationModule.forRoot(),
     FileUploadModule,
     JwtModule.forRoot({
       config: {
