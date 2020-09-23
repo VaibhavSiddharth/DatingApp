@@ -34,9 +34,9 @@ namespace DatingApp.API.Controllers
             var currentUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
             var userFromRepo = await _repo.GetUser(currentUserId);
             userParams.UserId = currentUserId;
-            userParams.Gender = userFromRepo.Gender;
-            if(!string.IsNullOrEmpty(userParams.Gender)){
-                userParams.Gender = userParams.Gender == "male" ? "female":"male";
+            // userParams.Gender = userFromRepo.Gender;
+            if(string.IsNullOrEmpty(userParams.Gender)){
+                userParams.Gender = userFromRepo.Gender == "male" ? "female":"male";
             }
 
             var users = await _repo.GetUsers(userParams);
